@@ -1,0 +1,10 @@
+{
+  "name": "query_builder",
+  "version": "0.0.1",
+  "description": "a small lib that builds query using mysql adapter",
+  "private": true,
+  "main": "query_builder",
+  "dependencies": {
+    "mysql": "^2.6.2"
+  }
+}
