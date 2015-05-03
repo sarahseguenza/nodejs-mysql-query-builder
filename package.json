@@ -4,6 +4,12 @@
   "description": "a small lib that builds query using mysql adapter",
   "private": true,
   "main": "query_builder",
+  "licenses": [
+	{
+		"type": "MIT",
+		"url": "https://github.com/sarahseguenza/nodejs_mysql_query_builder/blob/master/LICENSE-MIT"
+	}
+  ], 
   "dependencies": {
     "mysql": "^2.6.2"
   }
