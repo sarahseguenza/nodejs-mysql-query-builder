@@ -3,6 +3,22 @@ A small lib that builds query using mysql and nodejs
 
 credits to https://github.com/felixge/node-mysql for mysql nodejs module
 
+##Table of Contents
+
+- [Introduction](#introduction)
+- [Database Configuration and Connecting to your Database](#database-configuration-and-connecting-to-your-database)
+- [Connection Options](#connection-options)
+- [Queries](#queries)
+- [Select Statement](#select-statement)
+- [Update Statement](#update-statement)
+- [Delete Statement](#delete-statement)
+- [Insert Statement](#insert-statement)
+- [Native Query](#native-query)
+- [Set Field Clause](#set-field-clause)
+- [Build a Condition Clause](#build-a-condition-clause)
+- [Build a Join Clause](#build-a-join-clause)
+- [View the Generated Query](#view-the-generated-query)
+
 ##Introduction
 
 This is a small mysql query builder using the nojejs mysql driver by felixge. 
@@ -278,7 +294,7 @@ Options for executing a query
 	});
 ```
 
-## Set Fields Parameters
+## Set Field Clause
 
 This is for select and insert queries.
 
@@ -295,7 +311,7 @@ UPDATE `table` SET `field1` = 'value', `field2` = 'value';
 INSERT INTO `table` SET `field1` = 'value', `field2` = 'value';
 ```
 
-## Build a Condition Parameters
+## Build a Condition Clause
 
 This is where we build the `WHERE` clause.
 
@@ -412,7 +428,7 @@ Other operators
 	field1 != 1 AND field2 <= 1 AND field3 >= 1
 ```
 
-Summary of Condition parameter
+Summary of Condition clause
 ```js
 	{
 		field1 : 'value',
@@ -484,7 +500,7 @@ Summary of Condition parameter
 	;
 ```
 
-## Build a Join Parameters
+## Build a Join Clause
 
 Permits you to write the JOIN portion of your query.
 
