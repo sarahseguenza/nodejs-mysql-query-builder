@@ -3,22 +3,6 @@ A small lib that builds query using mysql and nodejs
 
 credits to https://github.com/felixge/node-mysql for mysql nodejs module
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Database Configuration and Connecting to your Database](#database-configuration-and-connecting-to-your-database)
-- [Connection Options](#connection-options)
-- [Queries](#queries)
-- [Select Statement](#select-statement)
-- [Update Statement](#update-statement)
-- [Delete Statement](#delete-statement)
-- [Insert Statement](#insert-statement)
-- [Native Query](#native-query)
-- [Set Fields Parameters](#set-fields-parameters)
-- [Build a Condition Parameters](#build-a-condition-parameters)
-- [Build a Join Parameters](#build-a-join-parameters)
-- [View the Generated Query](#view-the-generated-query)
-
 ##Introduction
 
 This is a small mysql query builder using the nojejs mysql driver by felixge. 
