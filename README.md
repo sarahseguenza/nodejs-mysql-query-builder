@@ -156,7 +156,7 @@ Options for Select Statement
 				//  errno: 1146,
 				//  sqlState: '42S02',
 				//  index: 0 }
-			// row : contain the results of the query
+			// row : contain results of the query
 				// [{
 				//	field1 : value1,
 				//	field2 : value2
@@ -169,7 +169,7 @@ Options for Select Statement
 
 Options for Update Statement
 
-* `table` : The table name that you want to update a particular record. Required.
+* `table` : The table name where you want to update a particular record. Required.
 * `details` : This is where we set the fields and its new values. Please see build `Set Fields Parameters`.
 * `conditions` : This is for `WHERE` clause. Please see `Build a Condition Parameters`.
 * `show_query` : View the generated query. Please see `View the Generated Query`.
@@ -196,7 +196,7 @@ Options for Update Statement
 				//  errno: 1146,
 				//  sqlState: '42S02',
 				//  index: 0 }
-			// result : contain the results of the query
+			// result : contain results of the query
 			// number of changed rows : The number of changed rows when executing the update statement
 		}
 	);
@@ -206,7 +206,7 @@ Options for Update Statement
 
 Options for Delete Statement
 
-* `table` : The table name that you want to delete a particular record. Required.
+* `table` : The table name where you want to delete a particular record. Required.
 * `conditions` : This is for `WHERE` clause. Please see `Build a Condition Parameters`.
 * `show_query` : View the generated query. Please see `View the Generated Query`.
 
@@ -228,7 +228,7 @@ Options for Delete Statement
 				//  errno: 1146,
 				//  sqlState: '42S02',
 				//  index: 0 }
-			// result : contain the results of the query
+			// result : contain results of the query
 			// number of affected rows : The number of deleted rows when executing the delete statement
 		}
 	);
@@ -238,7 +238,7 @@ Options for Delete Statement
 
 Options for Insert Statement
 
-* `table` : The table name that you want to insert a particular record. Required.
+* `table` : The table name where you want to insert a particular record. Required.
 * `details` : This is where we set the fields and its values. Please see build `Set Fields Parameters`.
 * `show_query` : View the generated query. Please see `View the Generated Query`.
 
@@ -259,7 +259,7 @@ Options for Insert Statement
 				//  errno: 1146,
 				//  sqlState: '42S02',
 				//  index: 0 }
-			// result : contain the results of the query
+			// result : contain results of the query
 			// inserted id : The generated primary id of the newly created row
 		}
 	);
