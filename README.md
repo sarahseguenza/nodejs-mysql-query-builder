@@ -21,7 +21,7 @@ credits to https://github.com/felixge/node-mysql for mysql nodejs module
 
 ##Introduction
 
-This is a small mysql query builder using the nojejs mysql driver by felixge. 
+This is a small mysql query builder using the nodejs mysql driver by felixge. 
 
 Sample Usage:
 

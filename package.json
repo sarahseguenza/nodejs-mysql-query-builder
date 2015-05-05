@@ -2,8 +2,20 @@
   "name": "query_builder",
   "version": "0.0.1",
   "description": "a small lib that builds query using mysql adapter",
+  "author": "Sarah Seguenza",
   "private": true,
   "main": "query_builder",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sarahseguenza/nodejs-mysql-query-builder.git"
+  },
+  "keywords": [
+    "mysql",
+    "nodejs",
+    "query",
+    "mysql query builder",
+    "escape query"
+  ],
   "licenses": [
 	{
 		"type": "MIT",
