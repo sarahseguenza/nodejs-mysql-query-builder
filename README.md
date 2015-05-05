@@ -3,7 +3,7 @@ A small lib that builds query using mysql and nodejs
 
 credits to https://github.com/felixge/node-mysql for mysql nodejs module
 
-##Table of Contents
+## Table of Contents
 
 - [Introduction](#introduction)
 - [Database Configuration and Connecting to your Database](#database-configuration-and-connecting-to-your-database)
@@ -19,7 +19,7 @@ credits to https://github.com/felixge/node-mysql for mysql nodejs module
 - [Build a Join Clause](#build-a-join-clause)
 - [View the Generated Query](#view-the-generated-query)
 
-##Introduction
+## Introduction
 
 This is a small mysql query builder using the nodejs mysql driver by felixge. 
 

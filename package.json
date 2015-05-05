@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a small lib that builds query using mysql adapter",
   "author": "Sarah Seguenza",
-  "private": true,
+  "private": false,
   "main": "query_builder",
   "repository": {
     "type": "git",

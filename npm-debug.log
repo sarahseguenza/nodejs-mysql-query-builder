@@ -1,0 +1,115 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish',
+1 verbose cli   '--force' ]
+2 info using npm@1.4.23
+3 info using node@v0.10.31
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 warn using --force I sure hope you know what you are doing.
+6 verbose publish [ '.' ]
+7 verbose cache add [ '.', null ]
+8 verbose cache add name=undefined spec="." args=[".",null]
+9 verbose parsed url { protocol: null,
+9 verbose parsed url   slashes: null,
+9 verbose parsed url   auth: null,
+9 verbose parsed url   host: null,
+9 verbose parsed url   port: null,
+9 verbose parsed url   hostname: null,
+9 verbose parsed url   hash: null,
+9 verbose parsed url   search: null,
+9 verbose parsed url   query: null,
+9 verbose parsed url   pathname: '.',
+9 verbose parsed url   path: '.',
+9 verbose parsed url   href: '.' }
+10 silly lockFile 3a52ce78- .
+11 verbose lock . C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\3a52ce78-.lock
+12 verbose tar pack [ 'C:\\Users\\Sarah Seguenza\\AppData\\Roaming\\npm-cache\\query_builder\\1.0.0\\package.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package.tgz
+14 verbose folder .
+15 info prepublish query_builder@1.0.0
+16 silly lockFile 1f1177db-tar tar://.
+17 verbose lock tar://. C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\1f1177db-tar.lock
+18 silly lockFile a9d0be21--query-builder-1-0-0-package-tgz tar://C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package.tgz
+19 verbose lock tar://C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package.tgz C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\a9d0be21--query-builder-1-0-0-package-tgz.lock
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 1f1177db-tar tar://.
+22 silly lockFile a9d0be21--query-builder-1-0-0-package-tgz tar://C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package.tgz
+23 silly lockFile a9d0be21--query-builder-1-0-0-package-tgz tar://C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package.tgz
+24 silly lockFile e58c09c3-ache-query-builder-1-0-0-package C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package
+25 verbose lock C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\e58c09c3-ache-query-builder-1-0-0-package.lock
+26 silly lockFile e58c09c3-ache-query-builder-1-0-0-package C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package
+27 silly lockFile e58c09c3-ache-query-builder-1-0-0-package C:\Users\Sarah Seguenza\AppData\Roaming\npm-cache\query_builder\1.0.0\package
+28 silly lockFile 3a52ce78- .
+29 silly lockFile 3a52ce78- .
+30 silly publish { name: 'query_builder',
+30 silly publish   version: '1.0.0',
+30 silly publish   description: 'a small lib that builds query using mysql adapter',
+30 silly publish   author: { name: 'Sarah Seguenza' },
+30 silly publish   private: false,
+30 silly publish   main: 'query_builder',
+30 silly publish   repository:
+30 silly publish    { type: 'git',
+30 silly publish      url: 'git://github.com/sarahseguenza/nodejs-mysql-query-builder.git' },
+30 silly publish   keywords:
+30 silly publish    [ 'mysql',
+30 silly publish      'nodejs',
+30 silly publish      'query',
+30 silly publish      'mysql query builder',
+30 silly publish      'escape query' ],
+30 silly publish   licenses:
+30 silly publish    [ { type: 'MIT',
+30 silly publish        url: 'https://github.com/sarahseguenza/nodejs-mysql-query-builder/blob/master/LICENSE-MIT' } ],
+30 silly publish   dependencies: { mysql: '^2.6.2' },
+30 silly publish   readme: '# Nodejs MySQL Query Builder\r\nA small lib that builds query using mysql and nodejs \r\n\r\ncredits to https://github.com/felixge/node-mysql for mysql nodejs module\r\n\r\n## Table of Contents\r\n\r\n- [Introduction](#introduction)\r\n- [Database Configuration and Connecting to your Database](#database-configuration-and-connecting-to-your-database)\r\n- [Connection Options](#connection-options)\r\n- [Queries](#queries)\r\n- [Select Statement](#select-statement)\r\n- [Update Statement](#update-statement)\r\n- [Delete Statement](#delete-statement)\r\n- [Insert Statement](#insert-statement)\r\n- [Native Query](#native-query)\r\n- [Set Field Clause](#set-field-clause)\r\n- [Build a Condition Clause](#build-a-condition-clause)\r\n- [Build a Join Clause](#build-a-join-clause)\r\n- [View the Generated Query](#view-the-generated-query)\r\n\r\n## Introduction\r\n\r\nThis is a small mysql query builder using the nodejs mysql driver by felixge. \r\n\r\nSample Usage:\r\n\r\n```js\r\nvar query_builder = require(\'query_builder\');\r\n\r\nvar dbconn_default = {\r\n\thost : \'host\',\r\n\tuser : \'user\',\r\n\tpass : \'password\',\r\n\tdbase : \'database_schema\'\r\n};\r\n\r\nvar qb = new query_builder( dbconn_default );\r\n\r\nvar select_details = {\r\n\ttable : \'table_name\',\r\n\tfields : [ \'field1\', \'field2\', ... ],\r\n\tconditions : {\r\n\t\tfield1 : \'value1\',\r\n\t\tfield2 : \'value2\'\r\n\t}\r\n};\r\n\r\nqb.select( select_details, function( err, rows ){\r\n\tif( err )\r\n\t\tconsole.log( err );\r\n\telse\r\n\t\tconsole.log( rows );\r\n});\r\n```\r\n\r\nBy this, we can generate a query something like this:\r\n\r\n```sql\r\nSELECT `field1`, `field2` FROM `table_name` WHERE `field1` = \'value1\' AND `field2` = \'value2\'\r\n```\r\n\r\n## Database Configuration and Connecting to your Database\r\n\r\nThis module used the poolcluster functionality that provides multiple host connection.\r\n\r\nBelow is how you connect to your default database schema.\r\n\r\n```js\r\nvar dbconn_default = {\r\n\thost : \'host\',\r\n\tuser : \'user\',\r\n\tpass : \'password\',\r\n\tdbase : \'database_schema\'\r\n};\r\n\r\nvar default_schema = new query_builder( dbconn_default );\r\n```\r\n\r\nConnect in other database\r\n\r\n```js\r\nvar dbconn1 = {\r\n\thost : \'host\',\r\n\tuser : \'user\',\r\n\tpass : \'password\',\r\n\tdbase : \'other_database_schema\',\r\n\tpool_name : \'DBCONN1\'\r\n};\r\n\r\nvar new = new query_builder( dbconn1 );\r\n\r\nnew.select( \r\n\t{\r\n\t\ttable : \'table_name_in_another_database\',\r\n\t\tfields : [ \'field1\', \'field2\', ... ],\r\n\t\tconditions : {\r\n\t\t\tfield1 : \'value1\',\r\n\t\t\tfield2 : \'value2\'\r\n\t\t},\r\n\t\tpool_name : \'DBCONN1\'\r\n\t}, \r\n\tfunction( err, rows ){\r\n\t\tif( err )\r\n\t\t\tconsole.log( err );\r\n\t\telse\r\n\t\t\tconsole.log( rows );\r\n\t}\r\n);\r\n```\r\n\r\n## Connection Options\r\n\r\nConfiguration to establish connection are as follows:\r\n\r\n* `host` : Hostname of the database.\r\n* `user` : The username used to connect to the database.\r\n* `pass` : The password used to connect to the database.\r\n* `dbase` : The name of the database you want to connect to.\r\n* `pool_name` : Connection name identifier ( use when using multiple connections ).\r\n\r\n## Queries\r\n\r\nTo submit a query, use the following functions.\r\n\r\n```js\r\nqb.select( query_details_here, callback );\r\nqb.update( query_details_here, callback );\r\nqb.delete( query_details_here, callback );\r\nqb.insert( query_details_here, callback );\r\nqb.native_query( query_here, callback );\r\n```\r\n\r\nThis will automatically generate, escape and execute a query.\r\n\r\n## Select Statement\r\n\r\nOptions for Select Statement\r\n\r\n* `table` : The table name that you want to select. Required.\r\n* `fields` : An array of table fields that you want to show.\r\n* `conditions` : This is for `WHERE` clause. Please see `Build a Condition Parameters`.\r\n* `joins` : This is for `JOIN` portion of your query. Please see `Build a Join Parameters`.\r\n* `order` : Set an `ORDER BY` clause.\r\n* `group` : Permits you to create a `GROUP BY` clause.\r\n* `limit` : Limit the number of rows you would like returned by the query.\r\n* `start_row` : Set a result offset. Commonly used on pagination functionality.\r\n* `count` : Determine the number of rows in a particular table. A boolean type. Set to `false` by default.\r\n* `count_fields` : Field set with `COUNT` option. Sample is COUNT( users.id ) as X. This will overwrite the `fields` option.\r\n* `show_query` : View the generated query. Please see `View the Generated Query`.\r\n\r\n```js\r\n\tqb.select(\r\n\t\t{\r\n\t\t\ttable : \'table\',\r\n\t\t\tfields : [ \'field1\', \'field2\' ],\r\n\t\t\tconditions : {\r\n\t\t\t\tfield1 : \'value1\',\r\n\t\t\t\tfield2 : \'value2\'\r\n\t\t\t},\r\n\t\t\torder : \'field_name ASC\',\r\n\t\t\tgroup : \'field_name, ...\',\r\n\t\t\tlimit : 10,\r\n\t\t\tstart_row : 1,\r\n\t\t\tshow_query : true\r\n\t\t},\r\n\t\tfunction( err, row ){\r\n\t\t\t// callback\r\n\t\t\t// err : an error code, msg\r\n\t\t\t\t// { [Error: ER_NO_SUCH_TABLE: Table \'database_schema.table\' doesn\'t exist]\r\n\t\t\t\t//  code: \'ER_NO_SUCH_TABLE\',\r\n\t\t\t\t//  errno: 1146,\r\n\t\t\t\t//  sqlState: \'42S02\',\r\n\t\t\t\t//  index: 0 }\r\n\t\t\t// row : contain results of the query\r\n\t\t\t\t// [{\r\n\t\t\t\t//\tfield1 : value1,\r\n\t\t\t\t//\tfield2 : value2\r\n\t\t\t\t//\t}]\r\n\t\t}\r\n\t);\r\n```\r\n\r\n## Update Statement\r\n\r\nOptions for Update Statement\r\n\r\n* `table` : The table name where you want to update a particular record. Required.\r\n* `details` : This is where we set the fields and its new values. Please see build `Set Fields Parameters`.\r\n* `conditions` : This is for `WHERE` clause. Please see `Build a Condition Parameters`.\r\n* `show_query` : View the generated query. Please see `View the Generated Query`.\r\n\r\n```js\r\n\tqb.update(\r\n\t\t{\r\n\t\t\ttable : \'table\',\r\n\t\t\tdetails : {\r\n\t\t\t\tfield3 : \'new_value\',\r\n\t\t\t\t...\t   : \'...\'\r\n\t\t\t},\r\n\t\t\tconditions : {\r\n\t\t\t\tfield1 : \'value1\',\r\n\t\t\t\tfield2 : \'value2\'\r\n\t\t\t},\r\n\t\t\tshow_query : true\r\n\t\t},\r\n\t\tfunction( err, result, number_of_changed_rows ){\r\n\t\t\t// callback\r\n\t\t\t// err : an error code, msg\r\n\t\t\t\t// { [Error: ER_NO_SUCH_TABLE: Table \'database_schema.table\' doesn\'t exist]\r\n\t\t\t\t//  code: \'ER_NO_SUCH_TABLE\',\r\n\t\t\t\t//  errno: 1146,\r\n\t\t\t\t//  sqlState: \'42S02\',\r\n\t\t\t\t//  index: 0 }\r\n\t\t\t// result : contain results of the query\r\n\t\t\t// number of changed rows : The number of changed rows when executing the update statement\r\n\t\t}\r\n\t);\r\n```\r\n\r\n## Delete Statement\r\n\r\nOptions for Delete Statement\r\n\r\n* `table` : The table name where you want to delete a particular record. Required.\r\n* `conditions` : This is for `WHERE` clause. Please see `Build a Condition Parameters`.\r\n* `show_query` : View the generated query. Please see `View the Generated Query`.\r\n\r\n```js\r\n\tqb.delete(\r\n\t\t{\r\n\t\t\ttable : \'table\',\r\n\t\t\tconditions : {\r\n\t\t\t\tfield1 : \'value1\',\r\n\t\t\t\tfield2 : \'value2\'\r\n\t\t\t},\r\n\t\t\tshow_query : true\r\n\t\t},\r\n\t\tfunction( err, result, number_of_affected_rows ){\r\n\t\t\t// callback\r\n\t\t\t// err : an error code, msg\r\n\t\t\t\t// { [Error: ER_NO_SUCH_TABLE: Table \'database_schema.table\' doesn\'t exist]\r\n\t\t\t\t//  code: \'ER_NO_SUCH_TABLE\',\r\n\t\t\t\t//  errno: 1146,\r\n\t\t\t\t//  sqlState: \'42S02\',\r\n\t\t\t\t//  index: 0 }\r\n\t\t\t// result : contain results of the query\r\n\t\t\t// number of affected rows : The number of deleted rows when executing the delete statement\r\n\t\t}\r\n\t);\r\n```\r\n\r\n## Insert Statement\r\n\r\nOptions for Insert Statement\r\n\r\n* `table` : The table name where you want to insert a particular record. Required.\r\n* `details` : This is where we set the fields and its values. Please see build `Set Fields Parameters`.\r\n* `show_query` : View the generated query. Please see `View the Generated Query`.\r\n\r\n```js\r\n\tqb.insert(\r\n\t\t{\r\n\t\t\ttable : \'table\',\r\n\t\t\tdetails : {\r\n\t\t\t\tfield1 : \'value1\',\r\n\t\t\t\tfield2 : \'value2\'\r\n\t\t\t}\r\n\t\t},\r\n\t\tfunction( err, result, inserted_id ){\r\n\t\t\t// callback\r\n\t\t\t// err : an error code, msg\r\n\t\t\t\t// { [Error: ER_NO_SUCH_TABLE: Table \'database_schema.table\' doesn\'t exist]\r\n\t\t\t\t//  code: \'ER_NO_SUCH_TABLE\',\r\n\t\t\t\t//  errno: 1146,\r\n\t\t\t\t//  sqlState: \'42S02\',\r\n\t\t\t\t//  index: 0 }\r\n\t\t\t// result : contain results of the query\r\n\t\t\t// inserted id : The generated primary id of the newly created row\r\n\t\t}\r\n\t);\r\n```\r\n\r\n## Native Query\r\n\r\nOptions for executing a query\r\n\r\n* `query` : Your query statement to execute.\r\n* `pool_name` : Use this if you have multiple connections. Optional.\r\n\r\n```js\r\n\tqb.native_query( { query : \'SELECT * FROM users\' }, function( err, result ){\r\n\t\tconsole.log( result );\r\n\t});\r\n```\r\n\r\n## Set Field Clause\r\n\r\nThis is for select and insert queries.\r\n\r\nTo build on what fields to insert and/or update, please create an object of field names and values\r\n\r\n```js\r\n{ field1 : \'value\', field2 : \'value\' }\r\n```\r\n\r\nThis will generate\r\n\r\n```sql\r\nUPDATE `table` SET `field1` = \'value\', `field2` = \'value\';\r\nINSERT INTO `table` SET `field1` = \'value\', `field2` = \'value\';\r\n```\r\n\r\n## Build a Condition Clause\r\n\r\nThis is where we build the `WHERE` clause.\r\n\r\nFor simple condition, this will generate an AND operator by default\r\n```js\r\n\t{\r\n\t\tfield1 : \'value\',\r\n\t\tfield2 : \'value\'\r\n\t}\r\n```\r\n```sql\r\n\t`field1` = \'value\' AND `field2` = \'value\'\r\n```\r\n\r\nJoined by OR\r\n```js\r\n\t{\r\n\t\tor : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\'\r\n\t\t}\r\n\t}\r\n```\r\n```sql\r\n\t`field1` = \'value\' OR `field2` = \'value\'\r\n```\r\n\r\nIN clauses\r\n```js\r\n\t{\r\n\t\tfield1 : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\'\r\n\t\t}\r\n\t}\r\n```\r\n```sql\r\n\t`field1` IN( \'value\', \'value\' )\r\n```\r\n\r\nNOT clauses\r\n```js\r\n\t1. {\r\n\t\tnot : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\'\r\n\t\t}\r\n\t}\r\n\t\r\n\t2. {\r\n\t\t\'field1 !=\' : \'value\'\r\n\t}\r\n```\r\n```sql\r\n\t1. `field1` != \'value\' AND `field2` != \'value\'\r\n\t\r\n\t2. `field1` != \'value\'\r\n```\r\n\r\nLIKE clause, by default, this will joined by AND\r\n```js\r\n\t{\r\n\t\t\'field1 LIKE\' : \'%value%\',\r\n\t\t\'field2 NOT LIKE\' : \'value%\'\r\n\t}\r\n```\r\n```sql\r\n\t`field1` LIKE \'%value%\' AND `field2` NOT LIKE \'value%\'\r\n```\r\n\r\nOR LIKE clause\r\n\r\nLIKE clause, by default, this will joined by AND\r\n```js\r\n\tor : {\r\n\t\t\'field1 LIKE\' : \'%value%\',\r\n\t\t\'field2 NOT LIKE\' : \'value%\'\r\n\t}\r\n```\r\n```sql\r\n\t`field1` LIKE \'%value%\' OR `field2` NOT LIKE \'value%\'\r\n```\r\n\r\nNested clause\r\n```js\r\n\tand : {\r\n\t\tand : {\r\n\t\t\tkey1 : \'value\',\r\n\t\t\tkey2 : \'value\'\r\n\t\t},\r\n\t\tor : {\r\n\t\t\tkey3 : \'value\',\r\n\t\t\tkey4 : \'value\'\r\n\t\t},\r\n\t\tnot : {\r\n\t\t\tkey5 : \'value\',\r\n\t\t\tkey6 : \'value\'\r\n\t\t}\r\n\t}\r\n```\r\n```sql\r\n\t( ( `key1` = \'value\' and `key2` = \'value\' ) and ( `key3` = \'value\' or `key4` = \'value\' ) and ( `key5` != \'value\' AND `key6` != \'value\' ) )\r\n```\r\n\r\nOther operators\r\n```js\r\n\t{\r\n\t\t\'field1 !=\' : 1,\r\n\t\t\'field2 <=\' : 1,\r\n\t\t\'field3 >=\' : 1\r\n\t}\r\n```\r\n```sql\r\n\tfield1 != 1 AND field2 <= 1 AND field3 >= 1\r\n```\r\n\r\nSummary of Condition clause\r\n```js\r\n\t{\r\n\t\tfield1 : \'value\',\r\n\t\tfield2 : \'value\',\r\n\t\t\'field1 !=\' : \'value\',\r\n\t\t\'field1 LIKE\' : \'%value%\',\r\n\t\t\'field2 NOT LIKE\' : \'value%\',\r\n\t\t\'field1 !=\' : 1,\r\n\t\t\'field2 <=\' : 1,\r\n\t\t\'field3 >=\' : 1\r\n\t\tor : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\',\r\n\t\t\t\'field1 LIKE\' : \'%value%\',\r\n\t\t\t\'field2 NOT LIKE\' : \'value%\'\r\n\t\t},\r\n\t\tand : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\'\r\n\t\t},\r\n\t\tfield3 : {\r\n\t\t\tkey1 : \'value\',\r\n\t\t\tkey2 : \'value\'\r\n\t\t},\r\n\t\tnot : {\r\n\t\t\tfield1 : \'value\',\r\n\t\t\tfield2 : \'value\'\r\n\t\t},\r\n\t\tand : {\r\n\t\t\tand : {\r\n\t\t\t\tkey1 : \'value\',\r\n\t\t\t\tkey2 : \'value\'\r\n\t\t\t},\r\n\t\t\tor : {\r\n\t\t\t\tkey3 : \'value\',\r\n\t\t\t\tkey4 : \'value\'\r\n\t\t\t},\r\n\t\t\tnot : {\r\n\t\t\t\tkey5 : \'value\',\r\n\t\t\t\tkey6 : \'value\'\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n```\r\n```sql\r\n\tSELECT \t\t* \r\n\tFROM \t\t`table` \r\n\tWHERE  \t\t`field1` = \'value\' \r\n\t\t\t\tAND \r\n\t\t\t\t`field2` = \'value\' \r\n\t\t\t\tAND \r\n\t\t\t\tfield1 != 1 \r\n\t\t\t\tAND \r\n\t\t\t\tfield1 LIKE \'%value%\' \r\n\t\t\t\tAND \r\n\t\t\t\tfield2 NOT LIKE \'value%\' \r\n\t\t\t\tAND \r\n\t\t\t\tfield2 <= 1 \r\n\t\t\t\tAND \r\n\t\t\t\tfield3 >= 1 \r\n\t\t\t\tAND \r\n\t\t\t\t( `field1` = \'value\' or `field2` = \'value\' or field1 LIKE \'%value%\' or field2 NOT LIKE \'value%\' ) \r\n\t\t\t\tAND \r\n\t\t\t\t( ( `key1` = \'value\' and `key2` = \'value\' ) and ( `key3` = \'value\' or `key4` = \'value\' ) and ( `key5` != \'value\' AND `key6` != \'value\' ) ) \r\n\t\t\t\tAND \r\n\t\t\t\t`field3` IN ( \'value\', \'value\' )\r\n\t\t\t\tAND \r\n\t\t\t\t( `field1` != \'value\' AND `field2` != \'value\' )\r\n\t;\r\n```\r\n\r\n## Build a Join Clause\r\n\r\nPermits you to write the JOIN portion of your query.\r\n\r\nOptions are as follows:\r\n\r\n* `joins` : An object of table details to join.\r\n* `type` : Optional and this is `JOIN` by default. Join types are `left`, `right` and `inner`.\r\n* `ON clause` : This is where the ON condition resides. Similar to `Condition` parameter format.\r\n\r\n```js\r\n\tqb.select(\r\n\t\t{\r\n\t\t\ttable : \'users\',\r\n\t\t\tjoins : {\r\n\t\t\t\t\'user_types\' : {\r\n\t\t\t\t\ttype : \'left\',\r\n\t\t\t\t\t\'users.user_type_id !=\' : \'user_types.user_type_id\'\r\n\t\t\t\t},\r\n\t\t\t\t\'another table to join\' : {\r\n\t\t\t\t\t\'field\' : \'field\'\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t},\r\n\t\tfunction( err, rows ){\r\n\t\t\tconsole.log( rows );\r\n\t\t}\r\n\t);\r\n```\r\n```sql\r\n\tSELECT * FROM `users` LEFT OUTER JOIN `user_types` ON  users.user_type_id != user_types.user_type_id\r\n```\r\n\r\n## View the Generated Query\r\n\r\nThis will log the generated query using `console.log()`.\r\n\r\nSetting is as simple as assigning a boolean value to `show_query`. This is set `false` by default.',
+30 silly publish   readmeFilename: 'README.md',
+30 silly publish   gitHead: '9643ddb8eb8d0b33934ab977ba1f44f5c3313e7a',
+30 silly publish   bugs: { url: 'https://github.com/sarahseguenza/nodejs-mysql-query-builder/issues' },
+30 silly publish   homepage: 'https://github.com/sarahseguenza/nodejs-mysql-query-builder',
+30 silly publish   _id: 'query_builder@1.0.0',
+30 silly publish   scripts: {},
+30 silly publish   _shasum: '51bd55e345e28f9ba4743614ac29cd6176b397d4',
+30 silly publish   _from: '.' }
+31 verbose request where is /query_builder
+32 verbose request registry https://registry.npmjs.org/
+33 verbose request id 02d427a77cffbcd4
+34 verbose url raw /query_builder
+35 verbose url resolving [ 'https://registry.npmjs.org/', './query_builder' ]
+36 verbose url resolved https://registry.npmjs.org/query_builder
+37 verbose request where is https://registry.npmjs.org/query_builder
+38 info trying registry request attempt 1 at 14:16:05
+39 http PUT https://registry.npmjs.org/query_builder
+40 http 403 https://registry.npmjs.org/query_builder
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=60',
+41 verbose headers   'content-length': '95',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Tue, 05 May 2015 06:16:12 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-hkg6821-HKG',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1430806570.269543,VS0,VE2272' }
+42 error publish Failed PUT 403
+43 error Error: "You cannot publish over the previously published version 1.0.0." : query_builder
+43 error     at RegClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:300:14)
+43 error     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:238:65)
+43 error     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:123:22)
+43 error     at Request.emit (events.js:98:17)
+43 error     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:893:14)
+43 error     at Request.emit (events.js:117:20)
+43 error     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:844:12)
+43 error     at IncomingMessage.emit (events.js:117:20)
+43 error     at _stream_readable.js:943:16
+43 error     at process._tickCallback (node.js:419:13)
+44 error If you need help, you may report this *entire* log,
+44 error including the npm and node versions, at:
+44 error     <http://github.com/npm/npm/issues>
+45 error System Windows_NT 6.2.9200
+46 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish" "--force"
+47 error cwd C:\node\batch\node_modules\query_builder
+48 error node -v v0.10.31
+49 error npm -v 1.4.23
+50 verbose exit [ 1, true ]
