@@ -77,6 +77,21 @@ var dbconn_default = {
 var default_schema = new query_builder( dbconn_default );
 ```
 
+OR
+
+```js
+var dbconn_default = {
+	host : 'host',
+	user : 'user',
+	pass : 'password',
+	dbase : 'database_schema'
+};
+
+var qb = new query_builder();
+
+qb.add( dbconn_default );
+```
+
 Connect in other database
 
 ```js
@@ -88,9 +103,9 @@ var dbconn1 = {
 	pool_name : 'DBCONN1'
 };
 
-var new = new query_builder( dbconn1 );
+qb.add( dbconn1 );
 
-new.select( 
+qb.select( 
 	{
 		table : 'table_name_in_another_database',
 		fields : [ 'field1', 'field2', ... ],

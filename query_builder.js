@@ -3,16 +3,33 @@ var pool_cluster = mysql.createPoolCluster();
 var pool_name = 'default';
 
 function QB(options){
-	pool_cluster.add(
-		( typeof options.pool_name !== "undefined" ) ? options.pool_name : pool_name,
-		{
-			host 	 : options.host,
-			user 	 : options.user,
-			password : options.pass,
-			database : options.dbase,
-			debug	 : ( typeof options.debug !== "undefined" ) ? options.debug : false
-		}
-	);
+	if( typeof options !== "undefined" ){
+		pool_cluster.add(
+			( typeof options.pool_name !== "undefined" ) ? options.pool_name : pool_name,
+			{
+				host 	 : options.host,
+				user 	 : options.user,
+				password : options.pass,
+				database : options.dbase,
+				debug	 : ( typeof options.debug !== "undefined" ) ? options.debug : false
+			}
+		);
+	}
+}
+
+QB.prototype.add = function( options ){
+	if( typeof options !== "undefined" ){
+		pool_cluster.add(
+			( typeof options.pool_name !== "undefined" ) ? options.pool_name : pool_name,
+			{
+				host 	 : options.host,
+				user 	 : options.user,
+				password : options.pass,
+				database : options.dbase,
+				debug	 : ( typeof options.debug !== "undefined" ) ? options.debug : false
+			}
+		);
+	}
 }
 
 QB.prototype.native_query = function( options, callback ){
