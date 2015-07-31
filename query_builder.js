@@ -1,6 +1,8 @@
-var mysql = require('mysql');
-var pool_cluster = mysql.createPoolCluster();
-var pool_name = 'default';
+'use strict';
+
+var mysql = require('mysql'),
+    pool_cluster = mysql.createPoolCluster(),
+    pool_name = 'default';
 
 function QB(options){
 	if( typeof options !== "undefined" ){
